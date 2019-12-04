@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './JobCard.css';
+
 export default ({ jobData, favorite }) => {
   let location;
   if (jobData.remote) {

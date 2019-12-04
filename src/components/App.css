@@ -1,7 +1,3 @@
-.app {
-  text-align: center;
-}
+.app { text-align: center; }
 
-.app__powered-by {
-  font-style: italic;
-}
+.app__powered-by { font-style: italic; }
