@@ -1,0 +1,25 @@
+import React, { useEffect, useState } from 'react';
+
+import { fetchJobs } from '../actions';
+import JobCard from './JobCard';
+import './App.css';
+
+export default () => {
+  const [jobs, setJobs] = useState([]);
+  useEffect(() => setJobs(fetchJobs()), []);
+
+  const renderJobs = jobs.map((job) => <JobCard job={job} key={job.id} />);
+  return (
+    <div className="app">
+      <header className="app__header">
+        <h1>My Favorite Job Offers</h1>
+        <p className="app__powered-by">
+          powered by
+          {' '}
+          <a href="https://www.getonbrd.com/">Get on Board</a>
+        </p>
+      </header>
+      {renderJobs}
+    </div>
+  );
+};
