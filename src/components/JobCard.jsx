@@ -1,39 +1,41 @@
 import React from 'react';
 
-export default ({ job }) => {
+export default ({ jobData, favorite }) => {
   let location;
-  if (job.remote) {
+  if (jobData.remote) {
     location = (
-      <p>
-        This is a
-        {' '}
+      <span>
+        This is a &nbsp;
         <strong>remote</strong>
-        {' '}
-        job.
-      </p>
+        &nbsp; job.
+      </span>
     );
   } else {
     location = (
-      <p>
-        This job is in
-        {' '}
-        {job.city}
-        ,
-        {' '}
-        {job.country}
-      </p>
+      <span>
+        This job is in&nbsp;
+        {jobData.city}
+        ,&nbsp;
+        {jobData.country}
+      </span>
     );
+  }
+  let isFavorite;
+  if (favorite) {
+    isFavorite = 'This is a favorite offer of mine!';
+  } else {
+    isFavorite = 'Not a favorite (yet...)';
   }
   return (
     <div className="job">
-      <h3>{job.title}</h3>
+      <h3>{jobData.title}</h3>
+      <h5>{isFavorite}</h5>
       <p>
         $
-        {job.salary}
+        {jobData.salary}
       </p>
-      <div>{location}</div>
-      <p>{job.company.name}</p>
-
+      <p>{location}</p>
+      <p>{jobData.company.name}</p>
     </div>
   );
 };
