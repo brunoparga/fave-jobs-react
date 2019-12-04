@@ -27,15 +27,12 @@ export default ({ job }) => {
   return (
     <div className="job">
       <h3>{job.title}</h3>
-      <p>{job.salary}</p>
-      <p>{location}</p>
       <p>
-        {job.city}
-        ,
-        {' '}
-        {job.country}
+        $
+        {job.salary}
       </p>
-      <p>{job.company}</p>
+      <div>{location}</div>
+      <p>{job.company.name}</p>
 
     </div>
   );

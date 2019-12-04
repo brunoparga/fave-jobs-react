@@ -6,8 +6,13 @@ import './App.css';
 
 export default () => {
   const [jobs, setJobs] = useState([]);
-  useEffect(() => setJobs(fetchJobs()), []);
-
+  useEffect(() => {
+    async function fetchWrapper() {
+      const newJobs = await fetchJobs();
+      setJobs(newJobs);
+    }
+    fetchWrapper();
+  }, []);
   const renderJobs = jobs.map((job) => <JobCard job={job} key={job.id} />);
   return (
     <div className="app">
