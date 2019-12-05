@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { createBrowserHistory as history } from 'history';
 
 import JobIndex from '../components/JobIndex';
+import JobDetails from '../components/JobDetails';
 
 export default () => (
-  <Router history={history}>
+  <Router>
     <Switch>
       <Route exact path="/" component={JobIndex} />
+      <Route path="/:id" component={JobDetails} />
     </Switch>
   </Router>
 );
