@@ -1,35 +1,28 @@
 import React, { useEffect, useState } from 'react';
 
-import { fetchJobs } from '../actions';
-import JobCard from './JobCard';
-import './App.css';
+import { fetchJobs } from '../../actions';
+import JobCards from './JobCards';
+import './index.css';
 
 export default () => {
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
-    async function fetchWrapper() {
+    const fetchWrapper = async () => {
       const newJobs = await fetchJobs();
       setJobs(newJobs);
-    }
+    };
     fetchWrapper();
   }, []);
-  const renderJobs = jobs.map((job) => (
-    <JobCard
-      jobData={JSON.parse(job.data)}
-      favorite={job.favorite}
-      key={job.id}
-    />
-  ));
   return (
-    <div className="app">
-      <header className="app__header">
+    <div className="index">
+      <header>
         <h1>My Favorite Job Offers</h1>
-        <p className="app__powered-by">
+        <p className="index__powered-by">
           powered by&nbsp;
           <a href="https://www.getonbrd.com/">Get on Board</a>
         </p>
       </header>
-      {renderJobs}
+      <JobCards jobs={jobs} />
     </div>
   );
 };
