@@ -1,5 +1,7 @@
+const API_URL = 'https://fave-jobs-api.herokuapp.com'
+
 export const fetchJobs = async () => {
-  const jobs = await fetch('https://fave-jobs-api.herokuapp.com/jobs')
+  const jobs = await fetch(`${API_URL}/jobs`)
     .then((res) => res.json());
   // sort jobs by whether they're favorites. Even though it works,
   // 'return job2.favorite - job1.favorite' violates my aesthetic preferences.
@@ -9,5 +11,5 @@ export const fetchJobs = async () => {
     .sort((job1, job2) => (job1.favorite >= job2.favorite ? -1 : 1));
 };
 
-// This is here to appease the gods of linting
-export const placeholder = 'foo';
+export const fetchJob = (id) => fetch(`http://localhost:3000/job/${id}`)
+  .then((res) => res.json());
