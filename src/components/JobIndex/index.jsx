@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { fetchJobs } from '../../actions';
-import JobCards from './JobCards';
+import JobCard from './JobCard';
 import './index.css';
 
 export default () => {
@@ -22,7 +22,7 @@ export default () => {
           <a href="https://www.getonbrd.com/">Get on Board</a>
         </p>
       </header>
-      <JobCards jobs={jobs} />
+      {jobs.map((job) => <JobCard job={job} key={job.id} />)}
     </div>
   );
 };

@@ -11,5 +11,5 @@ export const fetchJobs = async () => {
     .sort((job1, job2) => (job1.favorite >= job2.favorite ? -1 : 1));
 };
 
-export const fetchJob = (id) => fetch(`http://localhost:3000/job/${id}`)
+export const fetchJob = (id) => fetch(`${API_URL}/job/${id}`)
   .then((res) => res.json());
