@@ -1,4 +1,4 @@
-const API_URL = 'https://fave-jobs-api.herokuapp.com'
+const API_URL = 'https://fave-jobs-api.herokuapp.com';
 
 export const fetchJobs = async () => {
   const jobs = await fetch(`${API_URL}/jobs`)

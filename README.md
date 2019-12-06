@@ -1,3 +1,26 @@
+# Fave Jobs front-end
+
+## Progress report
+
+- The search part itself is yet to do.
+- The index/search page displays the jobs received from the API, with their
+  basic information.
+- The jobs are clickable, taking the user to a page with the job's complete
+  details.
+- Marking jobs as favorites and keeping the marked ones on display regardless
+  of the search is yet to do.
+
+## TODOs (in no particular order)
+
+- searching jobs by keyword;
+- marking jobs as favorite;
+- keeping the favorites always displayed;
+- CSS;
+- tests;
+- square-ish result cards with Bootstrap card-grid(?) or CSS grid, using company images;
+
+# CRA boilerplate
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
