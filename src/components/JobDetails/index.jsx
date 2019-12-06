@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 
 import { fetchJob } from '../../actions';
+import JobPage from './JobPage';
 
 export default () => {
   const match = useRouteMatch();
-  const [job, setJob] = useState({ title: 'Loading...' });
+  const [job, setJob] = useState(null);
   useEffect(() => {
     const wrapper = async () => {
       const newJob = await fetchJob(match.params.id);
@@ -13,9 +14,8 @@ export default () => {
     };
     wrapper();
   }, [match.params.id]);
-  return (
-    <div className="job-details">
-      <h1>{job.title}</h1>
-    </div>
-  );
+  if (!job) {
+    return <p>Loading...</p>;
+  }
+  return <JobPage job={job} />;
 };
