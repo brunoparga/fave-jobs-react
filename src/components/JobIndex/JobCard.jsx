@@ -36,17 +36,17 @@ export default ({ job }) => {
     );
   }
   return (
-    <div className="job">
-      <Link to={job.api_id} className="job__link">
-        <h3>
-          {job.title}
-          &nbsp;at&nbsp;
-          {job.company.name}
-        </h3>
-      </Link>
-      <h5>{isFavorite}</h5>
-      <p>{salary}</p>
-      <p>{location}</p>
+    <div className="job__wrapper">
+      <div className="job">
+        <Link to={job.api_id} className="job__link">
+          <h3>{job.company.name}</h3>
+          <img src={job.logo_url} alt={job.company.name} />
+          <p>{job.title}</p>
+          <h5>{isFavorite}</h5>
+          <p>{salary}</p>
+          <p>{location}</p>
+        </Link>
+      </div>
     </div>
   );
 };

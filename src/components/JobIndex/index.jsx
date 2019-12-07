@@ -19,10 +19,17 @@ export default () => {
         <h1>My Favorite Job Offers</h1>
         <p className="index__powered-by">
           powered by&nbsp;
-          <a href="https://www.getonbrd.com/">Get on Board</a>
+          <a
+            href="https://www.getonbrd.com/"
+            className="index__link"
+          >
+            Get on Board
+          </a>
         </p>
       </header>
-      {jobs.map((job) => <JobCard job={job} key={job.id} />)}
+      <main>
+        {jobs.map((job) => <JobCard job={job} key={job.id} />)}
+      </main>
     </div>
   );
 };
