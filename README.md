@@ -19,6 +19,14 @@
 - CSS;
 - tests;
 
+## Technical decisions
+
+At first, it was decided not to use Redux. The app seemed simple enough to make do with just React's own state management practices. However, the need to pass details of the jobs fetched from the external API to the page displaying them strongly suggests Redux is actually needed here.
+
+Following the same reasoning of not using things unless absolutely necessary, I am not (yet...) installing two packages I usually use, `redux-form` and `connected-react-router`.
+
+I will be organizing the Redux action/reducer logic into [ducks](https://github.com/erikras/ducks-modular-redux) for the first time.
+
 # CRA boilerplate
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
