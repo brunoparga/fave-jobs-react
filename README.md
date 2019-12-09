@@ -9,15 +9,15 @@
   details.
 - Marking jobs as favorites and keeping the marked ones on display regardless
   of the search is yet to do.
+- searching jobs by keyword;
+- square-ish result cards with Bootstrap card-grid(?) or CSS grid, using company images;
 
 ## TODOs (in no particular order)
 
-- searching jobs by keyword;
 - marking jobs as favorite;
-- keeping the favorites always displayed;
+- keeping the favorites always displayed (already done, but with seeds);
 - CSS;
 - tests;
-- square-ish result cards with Bootstrap card-grid(?) or CSS grid, using company images;
 
 # CRA boilerplate
 

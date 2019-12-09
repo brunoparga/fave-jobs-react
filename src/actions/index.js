@@ -1,15 +1,21 @@
-const API_URL = 'https://fave-jobs-api.herokuapp.com';
+const INTERNAL_API_URL = 'https://fave-jobs-api.herokuapp.com';
+const EXTERNAL_API_URL = 'https://www.getonbrd.com/search/jobs';
 
-export const fetchJobs = async () => {
-  const jobs = await fetch(`${API_URL}/jobs`)
+export const fetchJobs = async (query) => {
+  const favoriteJobs = await fetch(`${INTERNAL_API_URL}/jobs`)
     .then((res) => res.json());
-  // sort jobs by whether they're favorites. Even though it works,
-  // 'return job2.favorite - job1.favorite' violates my aesthetic preferences.
-  // Since sort() mutates the array, I'm copying it for functional principles.
-  return Array
-    .from(jobs)
-    .sort((job1, job2) => (job1.favorite >= job2.favorite ? -1 : 1));
+  if (!query) { return favoriteJobs; }
+
+  let queriedJobs;
+  queriedJobs = await fetch(`${EXTERNAL_API_URL}?q=${query}`)
+    .then((res) => res.json());
+  queriedJobs = queriedJobs.jobs.map((job) => ({
+    ...job,
+    favorite: false,
+    api_id: job.id,
+  }));
+  return favoriteJobs.concat(queriedJobs);
 };
 
-export const fetchJob = (id) => fetch(`${API_URL}/job/${id}`)
+export const fetchJob = (id) => fetch(`${INTERNAL_API_URL}/job/${id}`)
   .then((res) => res.json());
