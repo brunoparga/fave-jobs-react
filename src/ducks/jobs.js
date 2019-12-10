@@ -4,15 +4,12 @@ const EXTERNAL_API_URL = 'https://www.getonbrd.com/search/jobs';
 
 // Action types
 const FETCH_JOBS = 'fave-jobs-react/jobs/FETCH_JOBS';
-const FETCH_JOB = 'fave-jobs-react/jobs/FETCH_JOB';
 
 // Reducer
 export default (state = [], { type, payload }) => {
   switch (type) {
     case FETCH_JOBS:
       return payload;
-    case FETCH_JOB:
-      return [payload];
     default:
       return state;
   }
@@ -20,7 +17,6 @@ export default (state = [], { type, payload }) => {
 
 // Action creators
 export const createFetchJobs = (payload) => ({ type: FETCH_JOBS, payload });
-export const createFetchJob = (payload) => ({ type: FETCH_JOB, payload });
 
 // Side effects (thunks)
 export const fetchJobs = (query) => async (dispatch) => {
@@ -48,7 +44,3 @@ export const fetchJobs = (query) => async (dispatch) => {
       return dispatch({ type: FETCH_JOBS, payload: jobs });
     });
 };
-
-export const fetchJob = (id) => (dispatch) => fetch(`${INTERNAL_API_URL}/job/${id}`)
-  .then((res) => res.json())
-  .then((payload) => dispatch(createFetchJob(payload)));
