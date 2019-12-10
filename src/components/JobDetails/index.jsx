@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 
-import { fetchJob } from '../../actions';
+import { fetchJob } from '../../ducks/jobs';
 import JobPage from './JobPage';
 
 export default () => {
