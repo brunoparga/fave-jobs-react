@@ -23,7 +23,8 @@ export const fetchJobs = (query) => async (dispatch) => {
   // We always need to fetch the user's favorite jobs
   const favoriteJobs = await fetch(`${INTERNAL_API_URL}/jobs`)
     .then((res) => res.json())
-    .then((payload) => {
+    .then((jobs) => {
+      const payload = jobs.map((job) => ({ ...job, favorite: true }));
       if (!query) { dispatch(createFetchJobs(payload)); }
       return payload;
     });

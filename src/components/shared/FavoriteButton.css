@@ -1,0 +1,32 @@
+.fave-button {
+  font-size: 24px;
+  padding: 12px;
+  cursor: pointer;
+  width: 80%;
+  transition: width 0.5s ease;
+  font-weight: bold;
+  margin-bottom: 12px;
+  border-radius: 26px;
+}
+
+.fave-button:hover {
+  width: 90%;
+}
+
+.fave-button--yes {
+  background-color: red;
+  color: white;
+  border-width: 0;
+}
+
+.fave-button--yes:hover > span { display: none }
+
+.fave-button--yes:hover::before { content: 'Un-favorite' }
+
+.fave-button--no {
+  color: red;
+  border: 3px solid red;
+  background-color: white;
+}
+
+.fave-button--no:hover { font-weight: bold }

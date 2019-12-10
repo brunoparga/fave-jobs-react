@@ -9,6 +9,7 @@
 
 ## TODOs (in no particular order)
 
+- filter out queried jobs if they're already favorites;
 - marking jobs as favorite;
 - CSS;
 - tests;

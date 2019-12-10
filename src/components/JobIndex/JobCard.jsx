@@ -2,15 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './JobCard.css';
+import FavoriteButton from '../shared/FavoriteButton';
 
 export default ({ job }) => {
-  let isFavorite;
-  if (job.favorite) {
-    isFavorite = 'This is a favorite offer of mine!';
-  } else {
-    isFavorite = 'Not a favorite (yet...)';
-  }
-
   const salary = job.salary
     .split('-')
     .map((sal) => `$${sal.trim()}`)
@@ -42,9 +36,9 @@ export default ({ job }) => {
           <h3>{job.company.name}</h3>
           <img src={job.logo_url} alt={job.company.name} />
           <p>{job.title}</p>
-          <h5>{isFavorite}</h5>
           <p>{salary}</p>
           <p>{location}</p>
+          <FavoriteButton favorite={job.favorite} />
         </Link>
       </div>
     </div>
