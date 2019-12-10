@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { toggleFavorite } from '../../ducks/jobs';
+import { addFavorite, removeFavorite } from '../../ducks/jobs';
 import './FavoriteButton.css';
 
 export default ({ job }) => {
@@ -11,7 +11,7 @@ export default ({ job }) => {
       <button
         type="button"
         className="fave-button fave-button--yes"
-        onClick={() => dispatch(toggleFavorite(job))}
+        onClick={() => dispatch(removeFavorite(job))}
       >
         <span className="fave-button__text fave-button__text--normal">Favorite job!</span>
       </button>
@@ -21,7 +21,7 @@ export default ({ job }) => {
     <button
       type="button"
       className="fave-button fave-button--no"
-      onClick={() => dispatch(toggleFavorite(job))}
+      onClick={() => dispatch(addFavorite(job))}
     >
       Add to favorites
     </button>

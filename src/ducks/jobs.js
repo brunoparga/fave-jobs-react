@@ -1,31 +1,43 @@
 // Single point of control for API URLs
-const INTERNAL_API_URL = 'https://fave-jobs-api.herokuapp.com';
+const INTERNAL_API_URL = 'https://fave-jobs-api.herokuapp.com/jobs';
 const EXTERNAL_API_URL = 'https://www.getonbrd.com/search/jobs';
 
 // Action types
-const FETCH_JOBS = 'fave-jobs-react/jobs/FETCH_JOBS';
+const prefix = 'fave-jobs-react/jobs';
+const FETCH_JOBS = `${prefix}/FETCH_JOBS`;
+const ADD_FAVORITE = `${prefix}/ADD_FAVORITE`;
+const REMOVE_FAVORITE = `${prefix}/REMOVE_FAVORITE`;
+
+// Helper
+const toggleFavorite = (payload, job) => {
+  let newJob = job;
+  if (payload.api_id === job.api_id) {
+    newJob = { ...job, favorite: !job.favorite };
+  }
+  return newJob;
+};
 
 // Reducer
 export default (state = [], { type, payload }) => {
   switch (type) {
     case FETCH_JOBS:
       return payload;
+    case ADD_FAVORITE:
+    case REMOVE_FAVORITE:
+      return state.map((job) => toggleFavorite(payload, job));
     default:
       return state;
   }
 };
 
 // Action creators
-export const createFetchJobs = (payload) => ({ type: FETCH_JOBS, payload });
-
-// Side effects (thunks)
 export const fetchJobs = (query) => async (dispatch) => {
   // We always need to fetch the user's favorite jobs
-  const favoriteJobs = await fetch(`${INTERNAL_API_URL}/jobs`)
+  const favoriteJobs = await fetch(`${INTERNAL_API_URL}`)
     .then((res) => res.json())
     .then((jobs) => {
       const payload = jobs.map((job) => ({ ...job, favorite: true }));
-      if (!query) { dispatch(createFetchJobs(payload)); }
+      if (!query) { dispatch({ type: FETCH_JOBS, payload }); }
       return payload;
     });
 
@@ -41,9 +53,26 @@ export const fetchJobs = (query) => async (dispatch) => {
       const queriedJobs = payload.jobs.map(
         (job) => ({ ...job, favorite: false, api_id: job.id }),
       );
+      // Show the favorite jobs *and* the ones from the search
       const jobs = favoriteJobs.concat(queriedJobs);
       return dispatch({ type: FETCH_JOBS, payload: jobs });
     });
 };
 
-export const toggleFavorite = (job) => (dispatch) => console.log(job);
+export const addFavorite = (job) => (dispatch) => {
+  fetch(`${INTERNAL_API_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(job),
+  })
+    .then((res) => res.json())
+    .then((payload) => dispatch({ type: ADD_FAVORITE, payload }));
+};
+
+export const removeFavorite = (job) => (dispatch) => {
+  fetch(`${INTERNAL_API_URL}/${job.api_id}`, { method: 'DELETE' })
+    .then((res) => res.json())
+    .then((payload) => dispatch({ type: REMOVE_FAVORITE, payload }));
+};
