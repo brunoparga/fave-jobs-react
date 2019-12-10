@@ -34,7 +34,7 @@ export const fetchJobs = (query) => async (dispatch) => {
 
   // If this fetch is not due to a query, don't try to fetch jobs with a
   // query parameter.
-  // I do prefer to run this test twice - one inside the Promise and the other
+  // I do prefer to check this twice - one inside the Promise and the other
   // outside - over nesting the second promise inside the first one.
   if (!query) { return; }
 
@@ -45,7 +45,6 @@ export const fetchJobs = (query) => async (dispatch) => {
         (job) => ({ ...job, favorite: false, api_id: job.id }),
       );
       const jobs = favoriteJobs.concat(queriedJobs);
-      console.log(jobs);
       return dispatch({ type: FETCH_JOBS, payload: jobs });
     });
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchJobs } from '../../ducks/jobs';
@@ -8,21 +8,26 @@ import './index.css';
 
 export default () => {
   const dispatch = useDispatch();
+
+  // Query-related stuff to pass down to the form as props
   const [query, setQuery] = useState('');
-  useEffect(() => {
-    dispatch(fetchJobs(query));
-  }, [dispatch, query]);
-  const jobs = useSelector((state) => state.jobs);
-  const handleSubmit = (event) => {
+  const handleFormChange = (event) => setQuery(event.target.value);
+  const handleFormSubmit = (event) => {
     event.preventDefault();
     dispatch(fetchJobs(query));
   };
-  const handleChange = (event) => setQuery(event.target.value);
+
+  // Get jobs from Redux state
+  let [jobs] = useState([]);
+  jobs = useSelector((state) => state.jobs);
+
+  // Display jobs if available, fetch them otherwise
   let main;
-  if (jobs) {
+  if (jobs.length > 0) {
     main = jobs.map((job) => <JobCard job={job} key={job.id} />);
   } else {
     main = <p>Loading...</p>;
+    dispatch(fetchJobs(query));
   }
   return (
     <div className="index">
@@ -39,8 +44,8 @@ export default () => {
         </p>
         <Search
           query={query}
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
+          handleSubmit={handleFormSubmit}
+          handleChange={handleFormChange}
         />
       </header>
       <main>
