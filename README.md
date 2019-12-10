@@ -2,20 +2,16 @@
 
 ## Progress report
 
-- The search part itself is yet to do.
-- The index/search page displays the jobs received from the API, with their
-  basic information.
-- The jobs are clickable, taking the user to a page with the job's complete
-  details.
-- Marking jobs as favorites and keeping the marked ones on display regardless
-  of the search is yet to do.
-- searching jobs by keyword;
-- square-ish result cards with Bootstrap card-grid(?) or CSS grid, using company images;
+- The search part is done!
+- The index/search page displays the jobs received from the APIs, with their basic information. It gets all favorites from this project's Rails API and the searched ones from the Get on Board API.
+- The jobs are clickable, taking the user to a page with the job's complete details. (This is temporarily broken, will be fixed witht the help of Redux.)
+- Marking jobs as favorites is yet to do.
+- Results are shown in cards with using company images.
 
 ## TODOs (in no particular order)
 
+- fix the job details page (Redux);
 - marking jobs as favorite;
-- keeping the favorites always displayed (already done, but with seeds);
 - CSS;
 - tests;
 
