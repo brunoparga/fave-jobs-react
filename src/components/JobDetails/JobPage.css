@@ -1,0 +1,6 @@
+.btn-container {
+  width: calc(210px / 0.8);
+  margin: auto;
+}
+
+.btn-container > img { margin-top: 15px }

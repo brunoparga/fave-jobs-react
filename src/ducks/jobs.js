@@ -45,3 +45,5 @@ export const fetchJobs = (query) => async (dispatch) => {
       return dispatch({ type: FETCH_JOBS, payload: jobs });
     });
 };
+
+export const toggleFavorite = (job) => (dispatch) => console.log(job);

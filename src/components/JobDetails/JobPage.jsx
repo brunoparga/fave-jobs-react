@@ -2,6 +2,9 @@ import React from 'react';
 import parse from 'html-react-parser';
 import { Link } from 'react-router-dom';
 
+import FavoriteButton from '../shared/FavoriteButton';
+import './JobPage.css';
+
 export default ({ job }) => {
   const onSite = (
     <span>
@@ -36,8 +39,11 @@ export default ({ job }) => {
 
       </Link>
       <h1>{job.title}</h1>
-      <p>{job.favorite ? 'Favorite!' : 'not a favorite yet'}</p>
-      <img src={job.logo_url} alt={`${job.company.name} logo`} />
+      <div className="btn-container">
+        <FavoriteButton job={job} />
+        <br />
+        <img src={job.logo_url} alt={`${job.company.name} logo`} />
+      </div>
       <p>
         Published on&nbsp;
         {job.published_at}

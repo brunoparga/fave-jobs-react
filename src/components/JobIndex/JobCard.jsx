@@ -38,8 +38,8 @@ export default ({ job }) => {
           <p>{job.title}</p>
           <p>{salary}</p>
           <p>{location}</p>
-          <FavoriteButton favorite={job.favorite} />
         </Link>
+        <FavoriteButton job={job} />
       </div>
     </div>
   );
