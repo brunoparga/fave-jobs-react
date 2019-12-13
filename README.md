@@ -8,13 +8,14 @@
 - Results are shown in cards using company images.
 - Marking jobs as favorite, and removing them, works.
 - Filter out queried jobs if they're already favorites.
+- The app is deployed to GitHub Pages.
 
 ## TODOs (in no particular order)
 
-- deploy!
 - CSS;
 - tests;
-- keep the query in the state? This would allow the user to visit one job page and go back to the list of his results. Sounds desirable. The action could be called from handleSubmit.
+- keep the query in the state? This would allow the user to visit one job page and go back to the list of his results. Sounds desirable. The action could be called from handleSubmit;
+- documentation on deploying and testing.
 
 ## Technical decisions
 
