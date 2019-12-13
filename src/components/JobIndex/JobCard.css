@@ -15,6 +15,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-h3 {
-  margin-top: 12px;
-}
+h3 { margin-top: 12px }
+
+.job__logo { width: 90% }

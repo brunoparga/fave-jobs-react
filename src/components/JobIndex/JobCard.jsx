@@ -34,7 +34,7 @@ export default ({ job }) => {
       <div className="job">
         <Link to={job.api_id} className="job__link">
           <h3>{job.company.name}</h3>
-          <img src={job.logo_url} alt={job.company.name} />
+          <img src={job.logo_url} alt={job.company.name} className="job__logo" />
           <p>{job.title}</p>
           <p>{salary}</p>
           <p>{location}</p>
