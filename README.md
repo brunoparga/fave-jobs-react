@@ -6,12 +6,12 @@
 - The index/search page displays the jobs received from the APIs, with their basic information. It gets all favorites from this project's Rails API and the searched ones from the Get on Board API.
 - The jobs are clickable, taking the user to a page with the job's complete details.
 - Results are shown in cards using company images.
-- Marking jobs as favorite, and removing them, works;
+- Marking jobs as favorite, and removing them, works.
+- Filter out queried jobs if they're already favorites.
 
 ## TODOs (in no particular order)
 
 - deploy!
-- filter out queried jobs if they're already favorites;
 - CSS;
 - tests;
 - keep the query in the state? This would allow the user to visit one job page and go back to the list of his results. Sounds desirable. The action could be called from handleSubmit.

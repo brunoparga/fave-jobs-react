@@ -8,13 +8,23 @@ const FETCH_JOBS = `${prefix}/FETCH_JOBS`;
 const ADD_FAVORITE = `${prefix}/ADD_FAVORITE`;
 const REMOVE_FAVORITE = `${prefix}/REMOVE_FAVORITE`;
 
-// Helper
+// Helpers
 const toggleFavorite = (payload, job) => {
   let newJob = job;
   if (payload.api_id === job.api_id) {
     newJob = { ...job, favorite: !job.favorite };
   }
   return newJob;
+};
+
+// If a job is already a favorite and also gets fetched from the external API,
+// don't show it twice.
+const mergeJobs = (favoriteJobs, queriedJobs) => {
+  const favoriteIds = favoriteJobs.map((job) => job.api_id);
+  const dedupedQueriedJobs = queriedJobs.filter(
+    (job) => !favoriteIds.includes(job.id),
+  );
+  return favoriteJobs.concat(dedupedQueriedJobs);
 };
 
 // Reducer
@@ -54,7 +64,7 @@ export const fetchJobs = (query) => async (dispatch) => {
         (job) => ({ ...job, favorite: false, api_id: job.id }),
       );
       // Show the favorite jobs *and* the ones from the search
-      const jobs = favoriteJobs.concat(queriedJobs);
+      const jobs = mergeJobs(favoriteJobs, queriedJobs);
       return dispatch({ type: FETCH_JOBS, payload: jobs });
     });
 };
