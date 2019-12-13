@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/fave-jobs-react/static/css/main.f2b2bfcf.chunk.css",
+    "main.js": "/fave-jobs-react/static/js/main.a9730227.chunk.js",
+    "main.js.map": "/fave-jobs-react/static/js/main.a9730227.chunk.js.map",
+    "runtime-main.js": "/fave-jobs-react/static/js/runtime-main.0d48f2f2.js",
+    "runtime-main.js.map": "/fave-jobs-react/static/js/runtime-main.0d48f2f2.js.map",
+    "static/js/2.b3f8e821.chunk.js": "/fave-jobs-react/static/js/2.b3f8e821.chunk.js",
+    "static/js/2.b3f8e821.chunk.js.map": "/fave-jobs-react/static/js/2.b3f8e821.chunk.js.map",
+    "index.html": "/fave-jobs-react/index.html",
+    "precache-manifest.42c10c1625b999cfab88d01042f98965.js": "/fave-jobs-react/precache-manifest.42c10c1625b999cfab88d01042f98965.js",
+    "service-worker.js": "/fave-jobs-react/service-worker.js",
+    "static/css/main.f2b2bfcf.chunk.css.map": "/fave-jobs-react/static/css/main.f2b2bfcf.chunk.css.map",
+    "static/js/2.b3f8e821.chunk.js.LICENSE": "/fave-jobs-react/static/js/2.b3f8e821.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0d48f2f2.js",
+    "static/js/2.b3f8e821.chunk.js",
+    "static/css/main.f2b2bfcf.chunk.css",
+    "static/js/main.a9730227.chunk.js"
+  ]
+}
