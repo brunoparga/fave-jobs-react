@@ -9,12 +9,12 @@
 - Marking jobs as favorite, and removing them, works.
 - Filter out queried jobs if they're already favorites.
 - The app is deployed to GitHub Pages.
+- As a side effect of switching from BrowserRouter to HashRouter, previously queried jobs seem to persist even after navigating to a specific job's details and back to the main page. So there seems to be no need to include the query in the state.
 
 ## TODOs (in no particular order)
 
 - CSS;
 - tests;
-- keep the query in the state? This would allow the user to visit one job page and go back to the list of his results. Sounds desirable. The action could be called from handleSubmit;
 - documentation on deploying and testing.
 
 ## Technical decisions
