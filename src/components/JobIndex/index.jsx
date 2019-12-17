@@ -9,14 +9,6 @@ import './index.css';
 export default () => {
   const dispatch = useDispatch();
 
-  // Query-related stuff to pass down to the form as props
-  const [query, setQuery] = useState('');
-  const handleFormChange = (event) => setQuery(event.target.value);
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    dispatch(fetchJobs(query));
-  };
-
   // Get jobs from Redux state
   let [jobs] = useState([]);
   jobs = useSelector((state) => state.jobs);
@@ -27,7 +19,7 @@ export default () => {
     main = jobs.map((job) => <JobCard job={job} key={job.id} />);
   } else {
     main = <p>Loading...</p>;
-    dispatch(fetchJobs(query));
+    dispatch(fetchJobs(''));
   }
   return (
     <div className="index">
@@ -42,11 +34,7 @@ export default () => {
             Get on Board
           </a>
         </p>
-        <Search
-          query={query}
-          handleSubmit={handleFormSubmit}
-          handleChange={handleFormChange}
-        />
+        <Search />
       </header>
       <main>
         {main}
