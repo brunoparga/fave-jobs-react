@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/fave-jobs-react/static/css/main.f2b2bfcf.chunk.css",
-    "main.js": "/fave-jobs-react/static/js/main.9d2a258d.chunk.js",
-    "main.js.map": "/fave-jobs-react/static/js/main.9d2a258d.chunk.js.map",
+    "main.js": "/fave-jobs-react/static/js/main.8a73cb28.chunk.js",
+    "main.js.map": "/fave-jobs-react/static/js/main.8a73cb28.chunk.js.map",
     "runtime-main.js": "/fave-jobs-react/static/js/runtime-main.0d48f2f2.js",
     "runtime-main.js.map": "/fave-jobs-react/static/js/runtime-main.0d48f2f2.js.map",
-    "static/js/2.5e2e63c1.chunk.js": "/fave-jobs-react/static/js/2.5e2e63c1.chunk.js",
-    "static/js/2.5e2e63c1.chunk.js.map": "/fave-jobs-react/static/js/2.5e2e63c1.chunk.js.map",
+    "static/js/2.30f0770c.chunk.js": "/fave-jobs-react/static/js/2.30f0770c.chunk.js",
+    "static/js/2.30f0770c.chunk.js.map": "/fave-jobs-react/static/js/2.30f0770c.chunk.js.map",
     "index.html": "/fave-jobs-react/index.html",
-    "precache-manifest.ffc047cfc648b2daefb45a8d47655216.js": "/fave-jobs-react/precache-manifest.ffc047cfc648b2daefb45a8d47655216.js",
+    "precache-manifest.fa8ac0ada89c088e4881997305cbf931.js": "/fave-jobs-react/precache-manifest.fa8ac0ada89c088e4881997305cbf931.js",
     "service-worker.js": "/fave-jobs-react/service-worker.js",
     "static/css/main.f2b2bfcf.chunk.css.map": "/fave-jobs-react/static/css/main.f2b2bfcf.chunk.css.map",
-    "static/js/2.5e2e63c1.chunk.js.LICENSE": "/fave-jobs-react/static/js/2.5e2e63c1.chunk.js.LICENSE"
+    "static/js/2.30f0770c.chunk.js.LICENSE": "/fave-jobs-react/static/js/2.30f0770c.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.0d48f2f2.js",
-    "static/js/2.5e2e63c1.chunk.js",
+    "static/js/2.30f0770c.chunk.js",
     "static/css/main.f2b2bfcf.chunk.css",
-    "static/js/main.9d2a258d.chunk.js"
+    "static/js/main.8a73cb28.chunk.js"
   ]
 }
