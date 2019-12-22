@@ -15,7 +15,8 @@
 
 - CSS;
 - tests;
-- documentation on deploying and testing.
+- documentation on deploying and testing;
+- change the `removeFavorite` thunk so that it doesn't look for a response body; instead, it will look for the `api_id` key in the response headers. Its payload will be an object with only that key.
 
 ## Technical decisions
 
