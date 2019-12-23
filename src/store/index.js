@@ -1,4 +1,5 @@
-/* eslint no-underscore-dangle: ["error", { "allow": ["__REDUX_DEVTOOLS_EXTENSION__"] }] */
+/* eslint no-underscore-dangle: ["error",
+  { "allow": ["__REDUX_DEVTOOLS_EXTENSION__"] }] */
 import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 

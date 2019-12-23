@@ -84,7 +84,7 @@ export const addFavorite = (job) => (dispatch) => {
 export const removeFavorite = (job) => (dispatch) => {
   fetch(`${INTERNAL_API_URL}/${job.api_id}`, { method: 'DELETE' })
     .then((res) => {
-      const api_id = res.headers.get('Api-Id')
-      dispatch({ type: REMOVE_FAVORITE, payload: { api_id } })
-    })
+      const apiId = res.headers.get('Api-Id');
+      dispatch({ type: REMOVE_FAVORITE, payload: { api_id: apiId } });
+    });
 };
