@@ -20,7 +20,8 @@
 - CSS;
 - tests;
 - documentation on deploying and testing;
-- change the `removeFavorite` thunk so that it doesn't look for a response body; instead, it will look for the `api_id` key in the response headers. Its payload will be an object with only that key.
+- change the `removeFavorite` thunk so that it doesn't look for a response body; instead, it will look for the `api_id` key in the response headers. Its payload will be an object with only that key;
+- oops, it looks like I actually need to keep the search query in the state. Otherwise, emptying the favorites prevents the user from seeing the search results, as an empty query gets endlessly fetched from the server.
 
 ## Technical decisions
 
