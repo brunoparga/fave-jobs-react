@@ -21,14 +21,7 @@ export default ({ job }) => {
       </span>
     );
   } else {
-    location = (
-      <span>
-        This job is in&nbsp;
-        {job.city}
-        ,&nbsp;
-        {job.country}
-      </span>
-    );
+    location = <span>{`This job is in ${job.city}, ${job.country}`}</span>;
   }
   return (
     <div className="job__wrapper">
