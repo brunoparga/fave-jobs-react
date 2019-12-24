@@ -83,11 +83,15 @@ That should be all. Happy favoriting jobs!
 
 ## Technical decisions
 
+### Redux and ducks
+
 At first, it was decided not to use Redux. The app seemed simple enough to make do with just React's own state management practices. However, the need to pass details of the jobs fetched from the external API to the page displaying them strongly suggests Redux is actually needed here.
 
 Following the same reasoning of not using things unless absolutely necessary, I am not (yet...) installing two packages I usually use, `redux-form` and `connected-react-router`.
 
 I will be organizing the Redux action/reducer logic into [ducks](https://github.com/erikras/ducks-modular-redux) for the first time.
+
+### Functions and hooks
 
 I made two related decisions, of using only function React components rather than class components and of eschewing Redux's `connect` higher-order component and its friend `bindActionConnectors`. Both these decisions tie closely with the use of Hooks.
 
@@ -98,3 +102,7 @@ There is also my preference for a functional programming paradigm. It is hard to
 It should be noted that the above paragraph is speculative and admittedly not very pragmatic. I don't have a lot of credence in that hypothesis and would be glad to learn better ways of thinking about the issue.
 
 The second decision alluded above sort of extends the use of React hooks to the Redux world. Instead of relying on the `connect` HOC to bring in state and action creators to components, I chose to use `useSelector` and `useDispatch` for these two roles. On top of dovetailing nicely with the React hooks, I believe these Redux hooks make the intent of the code more explicit; the function files also end up somewhat simpler.
+
+### CSS
+
+I have tried to organize the stylesheets based on the [BEM methodology](http://getbem.com/introduction/), which layers selectors into Blocks, Elements and Modifiers. One advantage is a very flat structure, with few if any questions about specificity. On the other hand, class names tend to get quite big and I am essentially not benefiting from React's component structure. I am not strongly attached to BEM; it is just a set of guidelines I happen to know a bit about, so I used them.
