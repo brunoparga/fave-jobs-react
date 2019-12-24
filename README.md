@@ -74,10 +74,10 @@ That should be all. Happy favoriting jobs!
 - As a side effect of switching from BrowserRouter to HashRouter, previously queried jobs seem to persist even after navigating to a specific job's details and back to the main page. So there seems to be no need to include the query in the state.
 - change the `removeFavorite` thunk so that it doesn't look for a response body; instead, it will look for the `api_id` key in the response headers. Its payload will be an object with only that key.
 - documentation on deploying and testing.
+- the app is as styled as it'll get.
 
 ## TODOs (in no particular order)
 
-- CSS;
 - tests;
 - oops, it looks like I actually need to keep the search query in the state. Otherwise, emptying the favorites prevents the user from seeing the search results, as an empty query gets endlessly fetched from the server.
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './JobCard.css';
 import FavoriteButton from '../shared/FavoriteButton';
+import './JobCard.css';
+import '../shared/job.css';
 
 export default ({ job }) => {
   const salary = job.salary
     .split('-')
-    .map((sal) => `$${sal.trim()}`)
+    .map((amount) => `$${amount.trim()}`)
     .join(' - ');
 
   let location;
@@ -31,10 +32,14 @@ export default ({ job }) => {
   }
   return (
     <div className="job__wrapper">
-      <div className="job">
+      <div className="job job--card">
         <Link to={job.api_id} className="job__link">
           <h3>{job.company.name}</h3>
-          <img src={job.logo_url} alt={job.company.name} className="job__logo" />
+          <img
+            src={job.logo_url}
+            alt={job.company.name}
+            className="job__logo"
+          />
           <p>{job.title}</p>
           <p>{salary}</p>
           <p>{location}</p>

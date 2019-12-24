@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import FavoriteButton from '../shared/FavoriteButton';
 import './JobPage.css';
+import '../shared/job.css';
 
 export default ({ job }) => {
   const onSite = (
@@ -23,20 +24,19 @@ export default ({ job }) => {
     .map((sal) => `$${sal.trim()}`)
     .join(' - ');
   const parsedGroup = (
-    <div>
+    <div className="job__text">
       {job.description ? parse(job.description) : null}
       {job.functions ? parse(job.functions) : null}
       {job.benefits ? parse(job.benefits) : null}
     </div>
   );
   return (
-    <div className="job-details">
+    <div className="job job--details">
       <Link to="/">
         <small>
           {'<'}
           - back
         </small>
-
       </Link>
       <h1>{job.title}</h1>
       <div className="btn-container">
@@ -48,7 +48,7 @@ export default ({ job }) => {
         Published on&nbsp;
         {job.published_at}
         &nbsp;|&nbsp;
-        Ver en&nbsp;
+        See on&nbsp;
         <a href={`https://getonbrd.com${job.url}`}>Get on Board</a>
       </p>
       <p>

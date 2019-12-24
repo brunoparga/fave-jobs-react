@@ -1,0 +1,8 @@
+.job {
+  background: white;
+  border-radius: 10px;
+  border-color: #cbb;
+  border-width: 3px;
+  border-style: solid;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 5px 10px rgba(0, 0, 0, 0.2);
+}

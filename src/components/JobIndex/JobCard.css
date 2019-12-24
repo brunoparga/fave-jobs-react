@@ -4,15 +4,9 @@
   padding: 5px 10px;
 }
 
-.job {
-  background: white;
+.job--card {
   margin: 5px auto;
-  border-radius: 10px;
   padding: 5px 0;
-  border-color: #cbb;
-  border-width: 3px;
-  border-style: solid;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 h3 { margin-top: 12px }

@@ -13,7 +13,11 @@ export default ({ job }) => {
         className="fave-button fave-button--yes"
         onClick={() => dispatch(removeFavorite(job))}
       >
-        <span className="fave-button__text fave-button__text--normal">Favorite job!</span>
+        <span
+          className="fave-button__text fave-button__text--normal"
+        >
+          Favorite job!
+        </span>
       </button>
     );
   }

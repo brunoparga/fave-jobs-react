@@ -1,3 +1,15 @@
+.job--details {
+  width: 90%;
+  margin: 10px auto;
+  padding: 20px;
+}
+
+.job__text {
+  width: 90%;
+  margin: 0 auto;
+  text-align: justify;
+}
+
 .btn-container {
   width: calc(210px / 0.8);
   margin: auto;
