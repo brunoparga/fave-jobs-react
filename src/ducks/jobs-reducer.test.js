@@ -1,4 +1,4 @@
-import reducer, { FETCH_JOBS, ADD_FAVORITE, REMOVE_FAVORITE } from './jobs';
+import reducer, { ADD_FAVORITE, FETCH_JOBS, REMOVE_FAVORITE } from './jobs';
 
 describe('Jobs reducer', () => {
   it('should return the initial state when given no action', () => {

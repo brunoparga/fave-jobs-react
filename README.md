@@ -63,7 +63,7 @@ npm test
 Furthermore, on top of the unit tests, there are the end-to-end tests:
 
 ```
-nightwatch
+./node_modules/.bin/nightwatch
 ```
 
 That should be all. Happy favoriting jobs!
@@ -97,7 +97,7 @@ At first, it was decided not to use Redux. The app seemed simple enough to make 
 
 Following the same reasoning of not using things unless absolutely necessary, I am not (yet...) installing two packages I usually use, `redux-form` and `connected-react-router`.
 
-I will be organizing the Redux action/reducer logic into [ducks](https://github.com/erikras/ducks-modular-redux) for the first time.
+I have organized the Redux action/reducer logic into [ducks](https://github.com/erikras/ducks-modular-redux) for the first time. In hindsight, I should have used [duck folders](https://www.freecodecamp.org/news/scaling-your-redux-app-with-ducks-6115955638be/) instead of duck files.
 
 ### Functions and hooks
 

@@ -1,5 +1,5 @@
 // Single point of control for API URLs
-const INTERNAL_API_URL = 'https://fave-jobs-api.herokuapp.com/jobs';
+export const INTERNAL_API_URL = 'https://fave-jobs-api.herokuapp.com/jobs';
 const EXTERNAL_API_URL = 'https://www.getonbrd.com/search/jobs';
 
 // Action types
@@ -69,22 +69,21 @@ export const fetchJobs = (query) => async (dispatch) => {
     });
 };
 
-export const addFavorite = (job) => (dispatch) => {
-  fetch(`${INTERNAL_API_URL}`, {
+export const addFavorite = (job) => async (dispatch) => {
+  const response = await fetch(`${INTERNAL_API_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(job),
-  })
-    .then((res) => res.json())
-    .then((payload) => dispatch({ type: ADD_FAVORITE, payload }));
+  });
+  const payload = await response.json();
+  dispatch({ type: ADD_FAVORITE, payload });
 };
 
-export const removeFavorite = (job) => (dispatch) => {
-  fetch(`${INTERNAL_API_URL}/${job.api_id}`, { method: 'DELETE' })
-    .then((res) => {
-      const apiId = res.headers.get('Api-Id');
-      dispatch({ type: REMOVE_FAVORITE, payload: { api_id: apiId } });
-    });
+export const removeFavorite = (job) => async (dispatch) => {
+  const url = `${INTERNAL_API_URL}/${job.api_id}`;
+  const response = await fetch(url, { method: 'DELETE' });
+  const apiId = response.headers.get('Api-Id');
+  dispatch({ type: REMOVE_FAVORITE, payload: { api_id: apiId } });
 };
