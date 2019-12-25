@@ -54,7 +54,7 @@ Now that you've _checked your water and drunk a Twitter_, you can go to the URL 
 
 ### Test
 
-Finally, you'll want to run the test suite:
+First you'll want to run the unit/integration test suite:
 
 ```
 npm test
@@ -83,10 +83,11 @@ That should be all. Happy favoriting jobs!
 - The app is as styled as it'll get.
 - End-to-end tests.
 - Unit and integration tests (e.g. for the jobs duck).
+- Previously, if the user removed all of the favorites, an infinite loop of loading empty results would set in and prevent searching and adding new favorites, rendering the app unusable. So now the user is actually prevented from removing the last favorite. Yes, this is a shameful hack.
 
 ## To-dos and known issues
 
-- oops, it looks like I actually need to keep the search query in the state. Otherwise, emptying the favorites prevents the user from seeing the search results, as an empty query gets endlessly fetched from the server;
+- once the user is in the job detail page, the page crashes if they reload the page, as the Redux state is lost.
 - (?) turn the hard-coded API URLs (both here and in the back-end) into environment variables
 
 ## Technical decisions

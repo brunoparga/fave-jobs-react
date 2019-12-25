@@ -81,7 +81,11 @@ export const addFavorite = (job) => async (dispatch) => {
   dispatch({ type: ADD_FAVORITE, payload });
 };
 
-export const removeFavorite = (job) => async (dispatch) => {
+export const removeFavorite = (job) => async (dispatch, getState) => {
+  const favoriteJobs = getState().jobs.filter((j) => j.favorite);
+  if (favoriteJobs.length === 1) {
+    return;
+  }
   const url = `${INTERNAL_API_URL}/${job.api_id}`;
   const response = await fetch(url, { method: 'DELETE' });
   const apiId = response.headers.get('Api-Id');
