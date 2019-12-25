@@ -1,6 +1,6 @@
 // Single point of control for API URLs
 export const INTERNAL_API_URL = 'https://fave-jobs-api.herokuapp.com/jobs';
-const EXTERNAL_API_URL = 'https://www.getonbrd.com/search/jobs';
+export const EXTERNAL_API_URL = 'https://www.getonbrd.com/search/jobs';
 
 // Action types
 const prefix = 'fave-jobs-react/jobs';
@@ -55,9 +55,9 @@ export const fetchJobs = (query) => async (dispatch) => {
   // query parameter.
   // I do prefer to check this twice - one inside the Promise and the other
   // outside - over nesting the second promise inside the first one.
-  if (!query) { return; }
+  if (!query) { return null; }
 
-  fetch(`${EXTERNAL_API_URL}?q=${query}`)
+  return fetch(`${EXTERNAL_API_URL}?q=${query}`)
     .then((res) => res.json())
     .then((payload) => {
       const queriedJobs = payload.jobs.map(
