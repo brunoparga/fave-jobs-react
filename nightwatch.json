@@ -1,0 +1,20 @@
+{
+  "src_folders": [
+    "test"
+  ],
+  "webdriver": {
+    "server_path": "node_modules/.bin/chromedriver",
+    "cli_args": [
+      "--verbose"
+    ],
+    "start_process": true,
+    "port": 9515
+  },
+  "test_settings": {
+    "default": {
+      "desiredCapabilities": {
+        "browserName": "chrome"
+      }
+    }
+  }
+}

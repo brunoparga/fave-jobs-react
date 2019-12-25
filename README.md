@@ -60,6 +60,12 @@ Finally, you'll want to run the test suite:
 npm test
 ```
 
+Furthermore, on top of the unit tests, there are the end-to-end tests:
+
+```
+nightwatch
+```
+
 That should be all. Happy favoriting jobs!
 
 ## Progress report
@@ -75,10 +81,11 @@ That should be all. Happy favoriting jobs!
 - change the `removeFavorite` thunk so that it doesn't look for a response body; instead, it will look for the `api_id` key in the response headers. Its payload will be an object with only that key.
 - documentation on deploying and testing.
 - the app is as styled as it'll get.
+- End-to-end tests.
 
-## TODOs (in no particular order)
+## To-dos and known issues
 
-- tests;
+- unit and integration tests (e.g. for the jobs duck);
 - oops, it looks like I actually need to keep the search query in the state. Otherwise, emptying the favorites prevents the user from seeing the search results, as an empty query gets endlessly fetched from the server.
 
 ## Technical decisions
@@ -106,3 +113,9 @@ The second decision alluded above sort of extends the use of React hooks to the 
 ### CSS
 
 I have tried to organize the stylesheets based on the [BEM methodology](http://getbem.com/introduction/), which layers selectors into Blocks, Elements and Modifiers. One advantage is a very flat structure, with few if any questions about specificity. On the other hand, class names tend to get quite big and I am essentially not benefiting from React's component structure. I am not strongly attached to BEM; it is just a set of guidelines I happen to know a bit about, so I used them.
+
+### End-to-end testing
+
+To make sure all of the moving parts are working, end-to-end tests with Nightwatch have been implemented. These spin up a browser to automatically visit my deployment of the app, use its search function, visit the page of a found job and toggle the favorite status through both pages.
+
+It should be noted that these tests are not entirely reliable; if the API takes a little too long to respond, they time out or otherwise believe unexpectedly. I still have much to learn to make more resilient tests.
