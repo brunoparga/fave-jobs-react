@@ -86,7 +86,8 @@ That should be all. Happy favoriting jobs!
 ## To-dos and known issues
 
 - unit and integration tests (e.g. for the jobs duck);
-- oops, it looks like I actually need to keep the search query in the state. Otherwise, emptying the favorites prevents the user from seeing the search results, as an empty query gets endlessly fetched from the server.
+- oops, it looks like I actually need to keep the search query in the state. Otherwise, emptying the favorites prevents the user from seeing the search results, as an empty query gets endlessly fetched from the server;
+- (?) turn the hard-coded API URLs (both here and in the back-end) into environment variables
 
 ## Technical decisions
 

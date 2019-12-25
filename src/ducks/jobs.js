@@ -4,9 +4,9 @@ const EXTERNAL_API_URL = 'https://www.getonbrd.com/search/jobs';
 
 // Action types
 const prefix = 'fave-jobs-react/jobs';
-const FETCH_JOBS = `${prefix}/FETCH_JOBS`;
-const ADD_FAVORITE = `${prefix}/ADD_FAVORITE`;
-const REMOVE_FAVORITE = `${prefix}/REMOVE_FAVORITE`;
+export const FETCH_JOBS = `${prefix}/FETCH_JOBS`;
+export const ADD_FAVORITE = `${prefix}/ADD_FAVORITE`;
+export const REMOVE_FAVORITE = `${prefix}/REMOVE_FAVORITE`;
 
 // Helpers
 const toggleFavorite = (payload, job) => {
