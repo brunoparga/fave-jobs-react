@@ -50,7 +50,7 @@ This will generate the build bundle and deploy it to your GitHub account. It mig
 
 Are you hydrated? When was the last time you drank water? Possibly a while, I guess... stand up, stretch your legs, go grab a water; the first deployment to GitHub Pages takes up to 10 minutes, since it propagates to the whole GitHub CDN (Content Delivery Network).
 
-Now that you've _checked your water and drunk a Twitter_, you can go to the URL you set up on `package.json`, which is probably `https://[your-github-username].github.io/fave-jobs-react` and see your front-end gloriously deployed. (Or not. This worked for me for the main repository, but not for a side one that I built to test these instructions. I don't know what to do here. Halp!)
+Now that you've drunk a water and checked your Twitter, you can go to the URL you set up on `package.json`, which is probably `https://[your-github-username].github.io/fave-jobs-react`, and see your front-end gloriously deployed. (Or not. This worked for me for the main repository, but not for a side one that I built to test these instructions. I don't know what to do here. Halp!)
 
 ### Test
 
@@ -85,10 +85,10 @@ That should be all. Happy favoriting jobs!
 - Unit and integration tests (e.g. for the jobs duck).
 - Previously, if the user removed all of the favorites, an infinite loop of loading empty results would set in and prevent searching and adding new favorites, rendering the app unusable. So now the user is actually prevented from removing the last favorite. Yes, this is a shameful hack.
 
-## To-dos and known issues
+## Known issues / avenues for improvement
 
 - once the user is in the job detail page, the page crashes if they reload the page, as the Redux state is lost.
-- (?) turn the hard-coded API URLs (both here and in the back-end) into environment variables
+- it would be easier for others to deploy the apps (both this one and the Rails one) if the respective URLs were set as environment variables.
 
 ## Technical decisions
 
